@@ -201,7 +201,7 @@ const Navbar = () => {
 </ul>
 
             {/* Bottom full-bleed logo */}
-            <div className="text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-[-0.04em] leading-none text-center pb-8 md:pb-12">
+            <div className="text-white text-6xl font-black uppercase tracking-[-0.04em] leading-none text-center pb-2">
               Jeremiah
               <sup className="text-4xl sm:text-5xl md:text-6xl align-super">®</sup>
             </div>
