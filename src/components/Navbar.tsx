@@ -50,7 +50,7 @@ const Navbar = () => {
     >
       {/* Mobile Logo - left side */}
       <motion.div
-        className="md:hidden text-[#ff0000] text-2xl font-bold uppercase tracking-tight"
+        className="md:hidden text-[#ff0000] text-2xl font-bold uppercase tracking-tight italic"
         initial={{ opacity: 1 }}
         animate={{
           y: logoHidden ? -60 : 0,
@@ -58,7 +58,7 @@ const Navbar = () => {
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        JEREMIAH<sup className="text-sm">®</sup>
+        JEREMIAH<sup className="text-sm ">®</sup>
       </motion.div>
 
       {/* Desktop Nav - vertical items that collapse to bars */}
@@ -125,7 +125,7 @@ const Navbar = () => {
 
       {/* Desktop centered logo - hides on scroll down */}
       <motion.div
-        className="hidden md:block absolute left-1/2 transform -translate-x-1/2 text-[#ff0000] text-4xl md:text-5xl font-bold uppercase tracking-tighter"
+        className="hidden md:block absolute left-1/2 transform -translate-x-1/2 text-[#ff0000] text-4xl md:text-5xl font-bold uppercase tracking-tighter italic"
         initial={{ y: 0, opacity: 1 }}
         animate={{
           y: logoHidden ? -60 : 0,
@@ -139,7 +139,7 @@ const Navbar = () => {
       {/* Desktop "GET IN TOUCH" button */}
       <motion.a
         href="#contact"
-        className="hidden md:flex flex-col items-center text-[#ff0000] uppercase text-base font-medium group"
+        className="hidden md:flex flex-col items-center text-[#ff0000] uppercase text-base font-medium group relative"
         initial={{ y: 0, scale: 1 }}
         animate={{
           y: isCollapsed ? -40 : 0,
@@ -148,14 +148,23 @@ const Navbar = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <span
-          className={`transition-opacity duration-500 ${isCollapsed ? "opacity-0" : "opacity-100"}`}
+          className={`
+      transition-opacity duration-500
+      ${isCollapsed ? "opacity-0" : "opacity-100"}
+      group-hover:opacity-100
+    `}
         >
           GET IN TOUCH
         </span>
+
         <motion.div
-          className="mt-1 w-10 h-10 border-2 border-[#ff0000] rounded-full flex items-center justify-center text-[#ff0000] text-xl group-hover:rotate-[-90deg] transition-transform duration-400"
+          className="
+      mt-1 w-10 h-10 border-2 border-[#ff0000] rounded-full 
+      flex items-center justify-center text-[#ff0000] text-xl 
+      group-hover:rotate-[-90deg] transition-transform duration-400
+    "
         >
-          <ArrowRight/>
+          <ArrowRight />
         </motion.div>
       </motion.a>
 
@@ -182,28 +191,30 @@ const Navbar = () => {
             className="fixed inset-0 bg-[#ff0000] text-white flex flex-col justify-between p-8 md:p-12 z-40 md:hidden overflow-y-auto"
           >
             {/* Nav links */}
-           <ul className="list-none p-0 m-0 mt-20 space-y-10 md:space-y-12 text-xl uppercase w-full font-medium tracking-tight">
-  {navItems.map((item, index) => (
-    <li key={item.label} className="w-full">
-      <NavLink
-        href={item.href}
-        onClick={() => setIsMobileMenuOpen(false)}
-        className="block py-2 hover:opacity-80 transition-opacity duration-300"
-      >
-        <ScrambledText
-          text={item.label}
-          scrambleDelay={200 + index * 120}   // stagger effect: each item starts a bit later
-          scrambleDuration={700}
-        />
-      </NavLink>
-    </li>
-  ))}
-</ul>
+            <ul className="list-none p-0 m-0 mt-20 space-y-2 md:space-y-12 text-xl uppercase w-full font-medium tracking-tight">
+              {navItems.map((item, index) => (
+                <li key={item.label} className="w-full">
+                  <NavLink
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-2 hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <ScrambledText
+                      text={item.label}
+                      scrambleDelay={200 + index * 120} // stagger effect: each item starts a bit later
+                      scrambleDuration={700}
+                    />
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
 
             {/* Bottom full-bleed logo */}
-            <div className="text-white text-6xl font-black uppercase tracking-[-0.04em] leading-none text-center pb-2">
+            <div className="text-white text-6xl font-black uppercase tracking-[-0.04em] leading-none text-center pb-2 italic">
               Jeremiah
-              <sup className="text-4xl sm:text-5xl md:text-6xl align-super">®</sup>
+              <sup className="text-6xl ">
+                ®
+              </sup>
             </div>
           </motion.div>
         )}
