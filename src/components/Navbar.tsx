@@ -81,12 +81,7 @@ const Navbar = () => {
                   isCollapsed ? "opacity-0 pointer-events-none" : "opacity-100"
                 }`}
               >
-                <ScrambledText
-                  text={item.label}
-                  className="block"
-                  scrambleDelay={400}
-                  scrambleDuration={900}
-                />
+                {item.label}
               </NavLink>
 
               {/* Red bar that appears when collapsed */}
@@ -157,8 +152,10 @@ const Navbar = () => {
         >
           GET IN TOUCH
         </span>
-        <motion.div className="mt-1 w-10 h-10 border-2 border-[#ff0000] rounded-full flex items-center justify-center text-[#ff0000] text-xl group-hover:rotate-[-90deg] transition-transform duration-400">
-          <ArrowRight />
+        <motion.div
+          className="mt-1 w-10 h-10 border-2 border-[#ff0000] rounded-full flex items-center justify-center text-[#ff0000] text-xl group-hover:rotate-[-90deg] transition-transform duration-400"
+        >
+          <ArrowRight/>
         </motion.div>
       </motion.a>
 
@@ -185,26 +182,28 @@ const Navbar = () => {
             className="fixed inset-0 bg-[#ff0000] text-white flex flex-col justify-between p-8 md:p-12 z-40 md:hidden overflow-y-auto"
           >
             {/* Nav links */}
-            <ul className="list-none p-0 m-0 mt-20 space-y-10 md:space-y-12 text-xl sm:text-2xl md:text-4xl uppercase w-full font-medium tracking-tight">
-              {navItems.map((item) => (
-                <li key={item.label} className="w-full">
-                  <NavLink
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-2 hover:opacity-80 transition-opacity duration-300"
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+           <ul className="list-none p-0 m-0 mt-20 space-y-10 md:space-y-12 text-xl uppercase w-full font-medium tracking-tight">
+  {navItems.map((item, index) => (
+    <li key={item.label} className="w-full">
+      <NavLink
+        href={item.href}
+        onClick={() => setIsMobileMenuOpen(false)}
+        className="block py-2 hover:opacity-80 transition-opacity duration-300"
+      >
+        <ScrambledText
+          text={item.label}
+          scrambleDelay={200 + index * 120}   // stagger effect: each item starts a bit later
+          scrambleDuration={700}
+        />
+      </NavLink>
+    </li>
+  ))}
+</ul>
 
             {/* Bottom full-bleed logo */}
             <div className="text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-[-0.04em] leading-none text-center pb-8 md:pb-12">
               Jeremiah
-              <sup className="text-4xl sm:text-5xl md:text-6xl align-super">
-                ®
-              </sup>
+              <sup className="text-4xl sm:text-5xl md:text-6xl align-super">®</sup>
             </div>
           </motion.div>
         )}
