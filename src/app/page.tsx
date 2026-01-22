@@ -1,5 +1,6 @@
 // src/app/page.tsx
 import Navbar from '@/components/Navbar';
+import ScrambledText from '@/components/ScrambledText';
 import {   ArrowRight } from 'lucide-react'; // optional: npm install lucide-react
 
 export default function Home() {
@@ -37,7 +38,20 @@ export default function Home() {
 
   {/* Subtitle */}
   <p className="text-xl md:text-2xl lg:text-3xl max-w-3xl font-medium leading-tight">
-  “The function of good software is to make the complex appear to be simple.” <br /><span className='italic mt-4' >- Grady Booch</span> 
+  <ScrambledText
+    text="“The function of good software is to make the complex appear to be simple.”"
+    as="span"
+    scrambleDelay={400}
+    scrambleDuration={900}
+  />
+  <br />
+  <ScrambledText
+    text="- Grady Booch"
+    as="span"
+    className="italic mt-4"
+    scrambleDelay={1200}
+    scrambleDuration={600}
+  />
 </p>
 
   {/* Scroll prompt */}
@@ -143,7 +157,7 @@ export default function Home() {
         >
           <span>Get in touch</span>
           <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-red-600 rounded-full flex items-center justify-center text-red-600 group-hover:rotate-[-90deg] transition-transform">
-            →
+           <ArrowRight/>
           </div>
         </a>
       </section>
