@@ -62,7 +62,7 @@ export default function Home() {
         className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20"
       >
         <div
-      className="
+          className="
         flex flex-col md:flex-row 
         gap-8 md:gap-12 lg:gap-20 
         justify-between items-center md:items-start
@@ -75,56 +75,50 @@ export default function Home() {
         text-base sm:text-lg md:text-xl lg:text-2xl 
         antialiased
       "
-      style={{
-        textShadow: "0 0 1px transparent",
-        WebkitFontSmoothing: "antialiased",
-        WebkitTapHighlightColor: "transparent",
-      }}
-    >
-      {/* Left: Main bold headline / mission statement */}
-      <div className="md:w-1/2 lg:w-5/12">
-        <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.04em]">
-          At my core,
-          <br />
-          I don’t just ship code
-          <br />
-          — I build systems
-          <br />
-          that endure
-          <br />
-          and empower.
-        </h2>
-      </div>
+          style={{
+            textShadow: "0 0 1px transparent",
+            WebkitFontSmoothing: "antialiased",
+            WebkitTapHighlightColor: "transparent",
+          }}
+        >
+          {/* Left: Main bold headline / mission statement */}
+          <div className="md:w-1/2 lg:w-6/12">
+            <h2 className="font-black text-4xl leading-[0.95] tracking-[-0.04em] font-medium">
+              At my core,
+              <br />
+              I don’t just ship code
+              <br />
+              — I build systems
+              <br />
+              that endure
+              <br />
+              and empower.
+            </h2>
+             <p className="mt-6 text-lg">
+              I partner with founders, teams, and visionaries who refuse average
+            </p>
+          </div>
 
-      {/* Right: Descriptive / value-driven copy */}
-      <div className="md:w-1/2 lg:w-7/12 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight">
-        <p className="mb-6 md:mb-8">
-          I partner with founders, teams, and visionaries who refuse average
-        </p>
-
-        <p className="font-black tracking-[-0.04em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
-          FULL-STACK CRAFTSMAN
-          <br />
-          BUILDING TOOLS THAT LAST.
-        </p>
-
-        <p className="mb-6 md:mb-8">
-          My work lives at the intersection of clean architecture,
-        </p>
-
-        <p className="mb-4">
-          meaningful user experiences,
-        </p>
-
-        <p>
-          and relentless focus on clarity — where strategy meets execution
-          <br />
-          and code becomes a force for better thinking, faster iteration,
-          <br />
-          and real, lasting impact.
-        </p>
-      </div>
-    </div>
+          {/* Right: Descriptive / value-driven copy */}
+          <div className="md:w-1/2 lg:w-7/12 text-lg  leading-tight">
+           
+            {/* <p className="font-black tracking-[-0.04em] text-4xl  mb-4 md:mb-6 font-medium">
+              FULL-STACK CRAFTSMAN
+              <br />
+              BUILDING TOOLS THAT LAST.
+            </p> */}
+            <p className="mb-6 md:mb-8">
+              My work lives at the intersection of clean architecture,
+              meaningful user experiences, and relentless focus on clarity
+            </p>
+            <p className="mb-4"></p>
+            Where strategy meets execution
+            <br />
+            and code becomes a force for better thinking, faster iteration,
+            <br />
+            and real, lasting impact.
+          </div>
+        </div>
       </section>
 
       {/* Selected Work – minimal cards / list */}

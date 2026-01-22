@@ -10,6 +10,7 @@ import {
 import { NavLink } from "./NavLink";
 import { ArrowBigRight, ArrowRight } from "lucide-react";
 import ScrambledText from "./ScrambledText";
+import ScrambledTextHover from "./ScrambledTextHover";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -81,7 +82,10 @@ const Navbar = () => {
                   isCollapsed ? "opacity-0 pointer-events-none" : "opacity-100"
                 }`}
               >
-                {item.label}
+                <ScrambledTextHover
+              text={item.label}
+              className="block"
+            />
               </NavLink>
 
               {/* Red bar that appears when collapsed */}
@@ -97,31 +101,34 @@ const Navbar = () => {
       </nav>
 
       {/* Collapsed state hover reveal - bars disappear on hover */}
-      {isCollapsed && (
-        <div className="hidden md:block absolute left-12 top-8 group z-10">
-          <ul className="flex flex-col space-y-3">
-            {navItems.map((item) => (
-              <motion.li
-                key={item.label}
-                className="relative h-7 w-32 mb-1"
-                whileHover={{ scale: 1.02 }}
-              >
-                <NavLink
-                  href={item.href}
-                  className="text-[#ff0000] uppercase text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-400 block"
-                >
-                  {item.label}
-                </NavLink>
+{isCollapsed && (
+  <div className="hidden md:block absolute left-12 top-8 group z-10">
+    <ul className="flex flex-col space-y-3">
+      {navItems.map((item) => (
+        <motion.li
+          key={item.label}
+          className="relative h-7 w-32 mb-1"
+          whileHover={{ scale: 1.02 }}
+        >
+          <NavLink
+            href={item.href}
+            className="text-[#ff0000] uppercase text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-400 block"
+          >
+            <ScrambledTextHover
+              text={item.label}
+              className="block"
+            />
+          </NavLink>
 
-                <motion.div
-                  className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 bg-[#ff0000] group-hover:opacity-0 transition-all duration-400"
-                  animate={{ width: isCollapsed ? 24 : 0 }}
-                />
-              </motion.li>
-            ))}
-          </ul>
-        </div>
-      )}
+          <motion.div
+            className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 bg-[#ff0000] group-hover:opacity-0 transition-all duration-400"
+            animate={{ width: isCollapsed ? 24 : 0 }}
+          />
+        </motion.li>
+      ))}
+    </ul>
+  </div>
+)}
 
       {/* Desktop centered logo - hides on scroll down */}
       <motion.div
@@ -170,7 +177,7 @@ const Navbar = () => {
 
       {/* Mobile toggle button - top right */}
       <motion.button
-        className={`md:hidden text-3xl font-bold relative z-50 w-10 h-10 flex items-center justify-center ${
+        className={`md:hidden text-5xl font-medium relative z-50 w-10 h-10 flex items-center justify-center ${
           isMobileMenuOpen ? "text-white" : "text-[#ff0000]"
         }`}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
