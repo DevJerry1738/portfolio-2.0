@@ -1,6 +1,6 @@
 // src/app/page.tsx
 import Navbar from '@/components/Navbar';
-import { ArrowDown,  ArrowRight } from 'lucide-react'; // optional: npm install lucide-react
+import {   ArrowRight } from 'lucide-react'; // optional: npm install lucide-react
 
 export default function Home() {
   return (
@@ -37,19 +37,18 @@ export default function Home() {
 
   {/* Subtitle */}
   <p className="text-xl md:text-2xl lg:text-3xl max-w-3xl font-medium leading-tight">
-    Full-stack developer focused on clean architecture, meaningful user experiences, 
-    and systems that last. Currently crafting tools that help people think clearer.
-  </p>
+  “The function of good software is to make the complex appear to be simple.” <br /><span className='italic mt-4' >- Grady Booch</span> 
+</p>
 
   {/* Scroll prompt */}
   <div className="flex items-center gap-3 text-lg md:text-xl uppercase tracking-wider">
     <span>About Me</span>
     <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
   </div>
-  <div className="flex items-center gap-3 text-lg md:text-xl uppercase tracking-wider opacity-70 animate-pulse">
+  {/* <div className="flex items-center gap-3 text-lg md:text-xl uppercase tracking-wider opacity-70 animate-pulse">
     <span>Scroll to explore</span>
     <ArrowDown className="w-5 h-5 md:w-6 md:h-6" />
-  </div>
+  </div> */}
 </div>
       </main>
 

@@ -8,6 +8,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { NavLink } from "./NavLink";
+import { ArrowBigRight, ArrowRight } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -153,7 +154,7 @@ const Navbar = () => {
         <motion.div
           className="mt-1 w-10 h-10 border-2 border-[#ff0000] rounded-full flex items-center justify-center text-[#ff0000] text-xl group-hover:rotate-[-90deg] transition-transform duration-400"
         >
-          ←
+          <ArrowRight/>
         </motion.div>
       </motion.a>
 
