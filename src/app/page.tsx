@@ -1,7 +1,7 @@
 // src/app/page.tsx
-import Navbar from '@/components/Navbar';
-import ScrambledText from '@/components/ScrambledText';
-import {   ArrowRight } from 'lucide-react'; // optional: npm install lucide-react
+import Navbar from "@/components/Navbar";
+import ScrambledText from "@/components/ScrambledText";
+import { ArrowRight } from "lucide-react"; // optional: npm install lucide-react
 
 export default function Home() {
   return (
@@ -11,65 +11,131 @@ export default function Home() {
 
       {/* Hero / Opening Statement – very valiente-like purposeful minimal */}
       <main className="pt-48 md:pt-64 pb-32 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
-       <div className="space-y-16 md:space-y-24">
-  {/* Very large, bold opening */}
-  <h1 className="text-5xl font-light text-lighter md:text-3xl lg:text-5xl text-center uppercase leading-none tracking-tight">
-    Purpose-led Software Development
-  </h1>
+        <div className="space-y-16 md:space-y-24">
+          {/* Very large, bold opening */}
+          <h1 className="text-5xl font-light text-lighter md:text-3xl lg:text-5xl text-center uppercase leading-none tracking-tight">
+            Purpose-led Software Development
+          </h1>
 
-  {/* Full-bleed video – no side gaps on any screen */}
-  <div className="relative w-full">
-    {/* This wrapper uses vw to always span the full viewport width */}
-    <div className="-mx-[calc(50vw-50%)] w-screen">
-      <div className="aspect-video w-full overflow-hidden bg-black/10">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/videos/happy-devices.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-  </div>
+          {/* Full-bleed video – no side gaps on any screen */}
+          <div className="relative w-full">
+            {/* This wrapper uses vw to always span the full viewport width */}
+            <div className="-mx-[calc(50vw-50%)] w-screen">
+              <div className="aspect-video w-full overflow-hidden bg-black/10">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/happy-devices.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
 
-  {/* Subtitle */}
-  <p className="text-xl md:text-2xl lg:text-3xl max-w-3xl font-medium leading-tight">
-  <ScrambledText
-    text="“The function of good software is to make the complex appear to be simple.”"
-    as="span"
-    scrambleDelay={400}
-    scrambleDuration={900}
-  />
-  <br />
-  <ScrambledText
-    text="- Grady Booch"
-    as="span"
-    className="italic mt-4"
-    scrambleDelay={1200}
-    scrambleDuration={600}
-  />
-</p>
-
-  {/* Scroll prompt */}
-  <div className="flex items-center gap-3 text-lg md:text-xl uppercase tracking-wider">
-    <span>About Me</span>
-    <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
-  </div>
-  {/* <div className="flex items-center gap-3 text-lg md:text-xl uppercase tracking-wider opacity-70 animate-pulse">
-    <span>Scroll to explore</span>
-    <ArrowDown className="w-5 h-5 md:w-6 md:h-6" />
-  </div> */}
-</div>
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl lg:text-3xl max-w-3xl font-medium leading-tight">
+            <ScrambledText
+              text="“The function of good software is to make the complex appear to be simple.”"
+              as="span"
+              scrambleDelay={400}
+              scrambleDuration={900}
+            />
+            <br />
+            <ScrambledText
+              text="- Grady Booch"
+              as="span"
+              className="italic mt-4"
+              scrambleDelay={1200}
+              scrambleDuration={600}
+            />
+          </p>
+        </div>
       </main>
 
+      {/* About Me */}
+      <section
+        id="about"
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20"
+      >
+        <div
+      className="
+        flex flex-col md:flex-row 
+        gap-8 md:gap-12 lg:gap-20 
+        justify-between items-center md:items-start
+        max-w-7xl mx-auto 
+        px-6 sm:px-10 lg:px-16 
+        py-20 md:py-28 lg:py-36
+        font-mono uppercase 
+        text-[#ff1a00] 
+        tracking-[-0.03em] leading-[1.15] 
+        text-base sm:text-lg md:text-xl lg:text-2xl 
+        antialiased
+      "
+      style={{
+        textShadow: "0 0 1px transparent",
+        WebkitFontSmoothing: "antialiased",
+        WebkitTapHighlightColor: "transparent",
+      }}
+    >
+      {/* Left: Main bold headline / mission statement */}
+      <div className="md:w-1/2 lg:w-5/12">
+        <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.04em]">
+          At my core,
+          <br />
+          I don’t just ship code
+          <br />
+          — I build systems
+          <br />
+          that endure
+          <br />
+          and empower.
+        </h2>
+      </div>
+
+      {/* Right: Descriptive / value-driven copy */}
+      <div className="md:w-1/2 lg:w-7/12 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight">
+        <p className="mb-6 md:mb-8">
+          I partner with founders, teams, and visionaries who refuse average
+        </p>
+
+        <p className="font-black tracking-[-0.04em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6">
+          FULL-STACK CRAFTSMAN
+          <br />
+          BUILDING TOOLS THAT LAST.
+        </p>
+
+        <p className="mb-6 md:mb-8">
+          My work lives at the intersection of clean architecture,
+        </p>
+
+        <p className="mb-4">
+          meaningful user experiences,
+        </p>
+
+        <p>
+          and relentless focus on clarity — where strategy meets execution
+          <br />
+          and code becomes a force for better thinking, faster iteration,
+          <br />
+          and real, lasting impact.
+        </p>
+      </div>
+    </div>
+      </section>
+
       {/* Selected Work – minimal cards / list */}
-      <section id="work" className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20">
+      <section
+        id="work"
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20"
+      >
         <div className="max-w-5xl mx-auto space-y-24">
-          <h2 className="text-4xl font-light md:text-5xl lg:text-6xl font-black uppercase">Selected Work</h2>
+          <h2 className="text-4xl font-light md:text-5xl lg:text-6xl font-black uppercase">
+            Selected Work
+          </h2>
 
           <div className="space-y-32">
             {/* Project 1 */}
@@ -78,11 +144,14 @@ export default function Home() {
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase group-hover:text-red-700 transition-colors">
                   FinTrack — Personal Finance OS
                 </h3>
-                <span className="text-xl md:text-2xl opacity-70">2024 – 2025</span>
+                <span className="text-xl md:text-2xl opacity-70">
+                  2024 – 2025
+                </span>
               </div>
               <p className="mt-6 text-lg md:text-xl max-w-3xl">
-                Privacy-first finance dashboard built with Next.js, tRPC, Drizzle ORM & React Server Components. 
-                Focus: radical simplicity + offline-first architecture.
+                Privacy-first finance dashboard built with Next.js, tRPC,
+                Drizzle ORM & React Server Components. Focus: radical simplicity
+                + offline-first architecture.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 text-sm uppercase tracking-wider opacity-80">
                 <span>Next.js 14</span>
@@ -102,7 +171,7 @@ export default function Home() {
                 <span className="text-xl md:text-2xl opacity-70">2025</span>
               </div>
               <p className="mt-6 text-lg md:text-xl max-w-3xl">
-                Semantic search + context-aware chat over PDFs & markdown files. 
+                Semantic search + context-aware chat over PDFs & markdown files.
                 RAG pipeline with embeddings, Groq + Supabase Vector.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 text-sm uppercase tracking-wider opacity-80">
@@ -119,26 +188,48 @@ export default function Home() {
       </section>
 
       {/* Values / Approach – purpose-led section */}
-      <section id="values" className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20 bg-red-600/5">
+      <section
+        id="values"
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20 bg-red-600/5"
+      >
         <div className="max-w-4xl mx-auto space-y-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase">Core Principles</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase">
+            Core Principles
+          </h2>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-20">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">Clarity first</h3>
-              <p className="text-lg md:text-xl">Code should read like a manifesto. No clever tricks — only necessary ones.</p>
+              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">
+                Clarity first
+              </h3>
+              <p className="text-lg md:text-xl">
+                Code should read like a manifesto. No clever tricks — only
+                necessary ones.
+              </p>
             </div>
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">Long-term thinking</h3>
-              <p className="text-lg md:text-xl">Build for five years from now, not next sprint.</p>
+              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">
+                Long-term thinking
+              </h3>
+              <p className="text-lg md:text-xl">
+                Build for five years from now, not next sprint.
+              </p>
             </div>
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">Human-centered</h3>
-              <p className="text-lg md:text-xl">Tools exist for people — not the other way around.</p>
+              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">
+                Human-centered
+              </h3>
+              <p className="text-lg md:text-xl">
+                Tools exist for people — not the other way around.
+              </p>
             </div>
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">Bravery in restraint</h3>
-              <p className="text-lg md:text-xl">Say no to 90% of features so the 10% can shine.</p>
+              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">
+                Bravery in restraint
+              </h3>
+              <p className="text-lg md:text-xl">
+                Say no to 90% of features so the 10% can shine.
+              </p>
             </div>
           </div>
         </div>
@@ -147,7 +238,8 @@ export default function Home() {
       {/* Footer-ish closing – valiente-style affirmation */}
       <section className="py-40 px-6 md:px-12 lg:px-24 text-center">
         <p className="text-2xl md:text-4xl lg:text-5xl font-bold uppercase max-w-4xl mx-auto leading-tight">
-          Code isn’t just instructions.<br />
+          Code isn’t just instructions.
+          <br />
           It’s a promise.
         </p>
 
@@ -157,7 +249,7 @@ export default function Home() {
         >
           <span>Get in touch</span>
           <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-red-600 rounded-full flex items-center justify-center text-red-600 group-hover:rotate-[-90deg] transition-transform">
-           <ArrowRight/>
+            <ArrowRight />
           </div>
         </a>
       </section>
