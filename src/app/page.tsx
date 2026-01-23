@@ -4,13 +4,14 @@ import Navbar from "@/components/Navbar";
 import ScrambledText from "@/components/ScrambledText";
 import { ArrowRight } from "lucide-react"; // optional: npm install lucide-react
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const services = [
     {
-      number: "(01)",
+      number: "(01) ",
       title: "BRAND STRATEGY",
       list: [
         "RESEARCH & COMPETITOR ANALYSIS",
@@ -28,7 +29,7 @@ export default function Home() {
         "FROM POSITIONING TO PURPOSE, WE BUILD THE FOUNDATION FOR INTENTIONAL GROWTH.",
     },
     {
-      number: "(02)",
+      number: "(02) ",
       title: "VISUAL IDENTITY",
       list: [
         "LOGO DESIGN",
@@ -45,7 +46,7 @@ export default function Home() {
         "FROM LOGO TO ROLLOUT, EVERY ELEMENT IS MADE TO LAST — AND DRIVE GROWTH.",
     },
     {
-      number: "(03)",
+      number: "(03) ",
       title: "CREATIVE CONSULTING",
       list: [
         "CREATIVE DIAGNOSIS",
@@ -177,15 +178,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Services / What I Do – carousel style with scrambled text */}
       <section
         id="services"
         className="py-32 md:py-40 lg:py-48 px-6 md:px-12 lg:px-24 border-t border-red-600/20 overflow-hidden"
       >
         <div className="max-w-6xl mx-auto space-y-20 md:space-y-32">
           {/* Header */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-center md:text-left">
+          <h2 className="font-black text-4xl leading-[0.95] tracking-[-0.04em] font-medium w-50">
             <ScrambledText
-              text="HOW WE’LL SHINE — TOGETHER"
+              text="HOW WE'LL  GROW — TOGETHER"
               as="span"
               scrambleDelay={300}
               scrambleDuration={1200}
@@ -193,37 +195,86 @@ export default function Home() {
           </h2>
 
           {/* Carousel Container */}
-          <div className="relative min-h-[600px] md:min-h-[500px]">
-            {/* Cards – only one visible at a time */}
-            {services.map((service, index) => (
-              <div
-                key={service.number}
-                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                  activeIndex === index
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-8 pointer-events-none"
-                }`}
-              >
-                <div className="flex flex-col md:flex-row gap-12 md:gap-16 lg:gap-20">
-                  {/* Left: Number + Title + List */}
-                  <div className="md:w-5/12">
-                    <div className="text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-none tracking-[-0.04em]">
-                      <ScrambledText
-                        text={service.number}
-                        as="span"
-                        scrambleDelay={600 + index * 400}
-                        scrambleDuration={800}
-                      />
-                      <br />
-                      <ScrambledText
-                        text={service.title}
-                        as="span"
-                        scrambleDelay={900 + index * 400}
-                        scrambleDuration={1100}
-                      />
+          <div className="flex flex-col gap-12 md:gap-4">
+            <div className="relative min-h-[800px] sm:min-h-[700px] md:min-h-[500px]">
+              {/* Cards – only one visible at a time */}
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.number}
+                  className={`absolute inset-0 ${
+                    activeIndex === index ? "pointer-events-auto" : "pointer-events-none"
+                  }`}
+                  initial={false}
+                  animate={
+                    activeIndex === index
+                      ? { opacity: 1, y: 0 }
+                      : { opacity: 0, y: 20, transition: { duration: 0 } }
+                  }
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <div
+                    key={`card-${activeIndex}`}
+                    className="flex flex-col gap-12 md:gap-16"
+                  >
+                    {/* Top: Number + Title + Description */}
+                    <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
+                      {/* Left: Number + Title */}
+                      <motion.div
+                        className="md:w-5/12 "
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                      >
+                        <div className="text-6xl font-medium uppercase leading-none tracking-[-0.04em] w-20 ">
+                          <ScrambledText
+                            text={service.number}
+                            as="span"
+                            scrambleDelay={600 + index * 400}
+                            scrambleDuration={800}
+                          />
+
+                          <ScrambledText
+                            text={service.title}
+                            as="span"
+                            scrambleDelay={900 + index * 400}
+                            scrambleDuration={1100}
+                          />
+                        </div>
+                      </motion.div>
+
+                      {/* Right: Description */}
+                      <motion.div
+                        className="md:w-7/12 text-lg leading-relaxed opacity-90 line-height-[1.6]"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                      >
+                        <ScrambledText
+                          text={service.description1}
+                          as="p"
+                          scrambleDelay={1500 + index * 400}
+                          scrambleDuration={1400}
+                          className="mb-1"
+                        />
+                        <br />
+                        <br />
+                        <ScrambledText
+                          text={service.description2}
+                          as="p"
+                          scrambleDelay={2200 + index * 400}
+                          scrambleDuration={1000}
+                          className="mb-1"
+                        />
+                      </motion.div>
                     </div>
 
-                    <ul className="mt-10 space-y-3 md:space-y-4 text-base md:text-lg uppercase font-medium opacity-90">
+                    {/* Bottom: List */}
+                    <motion.ul
+                      className="w-full space-y-0.5 text-base md:text-lg uppercase font-medium opacity-90"
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                    >
                       {service.list.map((item, i) => (
                         <li key={i}>
                           <ScrambledText
@@ -234,76 +285,60 @@ export default function Home() {
                           />
                         </li>
                       ))}
-                    </ul>
+                    </motion.ul>
                   </div>
+                </motion.div>
+              ))}
+            </div>
 
-                  {/* Right: Description */}
-                  <div className="md:w-7/12 text-lg md:text-xl lg:text-2xl leading-relaxed opacity-90">
-                    <ScrambledText
-                      text={service.description1}
-                      as="p"
-                      scrambleDelay={1500 + index * 400}
-                      scrambleDuration={1400}
-                    />
-                    <br />
-                    <br />
-                    <ScrambledText
-                      text={service.description2}
-                      as="p"
-                      scrambleDelay={2200 + index * 400}
-                      scrambleDuration={1000}
-                    />
-                  </div>
+            {/* Navigation Controls – bottom */}
+            <div className="flex md:justify-end">
+              <div className="flex items-center justify-between md:justify-end w-full md:w-auto gap-6 md:gap-8 text-lg uppercase tracking-wider opacity-80">
+                <span className="md:order-2 md:ml-6">{String(activeIndex + 1).padStart(2, "0")} — 03</span>
+
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => setActiveIndex((prev) => (prev - 1 + 3) % 3)}
+                    className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
+                    disabled={activeIndex === 0}
+                    aria-label="Previous service"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#ff0000]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    onClick={() => setActiveIndex((prev) => (prev + 1) % 3)}
+                    className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
+                    disabled={activeIndex === 2}
+                    aria-label="Next service"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#ff0000]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
                 </div>
-              </div>
-            ))}
-
-            {/* Navigation Controls – bottom left */}
-            <div className="absolute bottom-0 left-0 flex items-center gap-6 text-lg uppercase tracking-wider opacity-80 z-10">
-              <span>{String(activeIndex + 1).padStart(2, "0")} — 03</span>
-
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() => setActiveIndex((prev) => (prev - 1 + 3) % 3)}
-                  className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
-                  disabled={activeIndex === 0}
-                  aria-label="Previous service"
-                >
-                  <svg
-                    className="w-5 h-5 text-[#ff0000]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                </button>
-
-                <button
-                  onClick={() => setActiveIndex((prev) => (prev + 1) % 3)}
-                  className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
-                  disabled={activeIndex === 2}
-                  aria-label="Next service"
-                >
-                  <svg
-                    className="w-5 h-5 text-[#ff0000]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
               </div>
             </div>
           </div>
