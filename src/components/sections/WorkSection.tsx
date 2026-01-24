@@ -31,7 +31,7 @@ export default function WorkSection() {
       title: "Capital Connect",
       year: "2025",
       description:
-        "Abuja Connect is a modern React + TypeScript web app that helps users discover trusted local service providers across Abuja. It features smart search and filters, verified provider badges, interactive maps, and clean, responsive UI. Designed as a scalable, portfolio-ready solution to a real local problem.",
+        "Capital Connect is a modern React + TypeScript web app that helps users discover trusted local service providers across Abuja. It features smart search and filters, verified provider badges, interactive maps, and clean, responsive UI. Designed as a scalable, portfolio-ready solution to a real local problem.",
       techs: ["React", "TypeScript", "Tailwind CSS"],
       links: [
         { label: "Live Site", url: "https://capital-connect-5fjc.vercel.app/" },
@@ -47,6 +47,17 @@ export default function WorkSection() {
       links: [
         { label: "Live Site", url: "https://v4c-abuja.vercel.app/" },
         { label: "GitHub Repo", url: "https://github.com/DevJerry1738/v4c-abuja" },
+      ],
+    },
+    {
+      title: "Enterpret Landing Page",
+      year: "2025",
+      description:
+        "Modern SaaS landing page built with React, TypeScript, and CSS Modules. Clean UI, responsive layout, and production ready component architecture.",
+      techs: ["React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      links: [
+        { label: "Live Site", url: "https://enterpret-ten.vercel.app/" },
+        { label: "GitHub Repo", url: "https://github.com/DevJerry1738/Enterpret---Landing-Page" },
       ],
     },
   ];
@@ -132,6 +143,17 @@ export default function WorkSection() {
               </motion.div>
             </motion.article>
           ))}
+        </div>
+        {/* View GitHub Repo Button */}
+        <div className="text-center">
+          <a
+            href="https://github.com/DevJerry1738?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 border border-[#ff0000] text-[#ff0000] uppercase text-sm font-medium hover:bg-[#ff0000]/10 transition-colors"
+          >
+            View GitHub Repositories
+          </a>
         </div>
       </div>
     </section>

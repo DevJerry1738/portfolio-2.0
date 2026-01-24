@@ -7,6 +7,8 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import WorkSection from "@/components/sections/WorkSection";
 import ValuesSection from "@/components/sections/ValuesSection";
 import ClosingSection from "@/components/sections/ClosingSection";
+import ContactSection from "@/components/sections/ContactSection";
+import FooterSection from "@/components/sections/FooterSection";
 
 export default function Home() {
   return (
@@ -30,7 +32,13 @@ export default function Home() {
       <ValuesSection />
 
       {/* Closing Section */}
-      <ClosingSection />
+      {/* <ClosingSection /> */}
+
+      {/* Contact Section */}
+      <ContactSection />
+
+      {/* Footer Section */}
+      <FooterSection />
     </div>
   );
 }

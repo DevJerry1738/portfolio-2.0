@@ -120,7 +120,7 @@ export default function ServicesSection() {
                           }}
                           transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                          <div className="text-6xl font-medium uppercase leading-none tracking-[-0.04em] w-20">
+                          <div className="text-5xl font-medium uppercase leading-none tracking-[-0.04em] w-20">
                             <span>{service.number}</span>
                             <span>{service.title}</span>
                           </div>

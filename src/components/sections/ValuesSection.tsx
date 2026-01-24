@@ -1,24 +1,24 @@
 // src/components/sections/ValuesSection.tsx
 export default function ValuesSection() {
   const principles = [
-    {
-      title: "Clarity first",
-      description:
-        "Code should read like a manifesto. No clever tricks — only necessary ones.",
-    },
-    {
-      title: "Long-term thinking",
-      description: "Build for five years from now, not next sprint.",
-    },
-    {
-      title: "Human-centered",
-      description: "Tools exist for people — not the other way around.",
-    },
-    {
-      title: "Bravery in restraint",
-      description: "Say no to 90% of features so the 10% can shine.",
-    },
-  ];
+  {
+    title: "Intentional simplicity",
+    description: "Every line exists for a reason. If it does not serve the user, it does not stay.",
+  },
+  {
+    title: "Thoughtful craft",
+    description: "Quality shows up in the small decisions most people never notice.",
+  },
+  {
+    title: "Performance awareness",
+    description: "Speed, responsiveness, and efficiency are part of good design.",
+  },
+  {
+    title: "Trust by design",
+    description: "Security and privacy are built into the system, not added later.",
+  },
+];
+
 
   return (
     <section
@@ -26,14 +26,14 @@ export default function ValuesSection() {
       className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20 bg-red-600/5"
     >
       <div className="max-w-4xl mx-auto space-y-16">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase">
+        {/* <h2 className="font-black text-4xl leading-[0.95] tracking-[-0.04em] font-medium uppercase">
           Core Values
-        </h2>
+        </h2> */}
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
           {principles.map((principle) => (
             <div key={principle.title}>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">
+              <h3 className="font-black text-4xl leading-[0.95] tracking-[-0.04em] font-medium uppercase">
                 {principle.title}
               </h3>
               <p className="text-lg md:text-xl">{principle.description}</p>
