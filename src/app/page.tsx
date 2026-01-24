@@ -195,8 +195,8 @@ export default function Home() {
           </h2>
 
           {/* Carousel Container */}
-          <div className="flex flex-col gap-12 md:gap-4">
-            <div className="relative min-h-[800px] sm:min-h-[700px] md:min-h-[500px]">
+          <div className="flex flex-col gap-6 sm:gap-8 md:gap-4">
+            <div className="relative min-h-[700px] sm:min-h-[700px] md:min-h-[500px]">
               {/* Cards – only one visible at a time */}
               {services.map((service, index) => (
                 <motion.div
@@ -214,7 +214,7 @@ export default function Home() {
                 >
                   <div
                     key={`card-${activeIndex}`}
-                    className="flex flex-col gap-12 md:gap-16"
+                    className="flex flex-col gap-8 sm:gap-12 md:gap-16"
                   >
                     {/* Top: Number + Title + Description */}
                     <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
@@ -229,14 +229,14 @@ export default function Home() {
                           <ScrambledText
                             text={service.number}
                             as="span"
-                            scrambleDelay={600 + index * 400}
+                            scrambleDelay={10000}
                             scrambleDuration={800}
                           />
 
                           <ScrambledText
                             text={service.title}
                             as="span"
-                            scrambleDelay={900 + index * 400}
+                            scrambleDelay={10000}
                             scrambleDuration={1100}
                           />
                         </div>
@@ -252,16 +252,15 @@ export default function Home() {
                         <ScrambledText
                           text={service.description1}
                           as="p"
-                          scrambleDelay={1500 + index * 400}
+                          scrambleDelay={10000}
                           scrambleDuration={1400}
                           className="mb-1"
                         />
                         <br />
-                        <br />
                         <ScrambledText
                           text={service.description2}
                           as="p"
-                          scrambleDelay={2200 + index * 400}
+                          scrambleDelay={10000}
                           scrambleDuration={1000}
                           className="mb-1"
                         />
@@ -280,7 +279,7 @@ export default function Home() {
                           <ScrambledText
                             text={`→ ${item}`}
                             as="span"
-                            scrambleDelay={1200 + index * 400 + i * 80}
+                            scrambleDelay={10000}
                             scrambleDuration={700}
                           />
                         </li>
