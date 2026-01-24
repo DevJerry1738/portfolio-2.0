@@ -19,7 +19,7 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "Jeremiah — Software Developer",
+  title: "JEREMIAH — SOFTWARE DEVELOPER & CONSULTANT",
   description: "Full-stack developer building clean, purposeful systems",
 };
 
