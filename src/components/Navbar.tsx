@@ -58,7 +58,7 @@ const Navbar = () => {
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        JEREMIAH<sup className="text-sm ">®</sup>
+        JEREMIAH
       </motion.div>
 
       {/* Desktop Nav - vertical items that collapse to bars */}
@@ -133,7 +133,7 @@ const Navbar = () => {
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        JEREMIAH<sup className="text-xl md:text-2xl">®</sup>
+        JEREMIAH
       </motion.div>
 
       {/* Desktop "GET IN TOUCH" button */}
@@ -212,7 +212,7 @@ const Navbar = () => {
             {/* Bottom full-bleed logo */}
             <div className="text-white text-6xl font-black uppercase tracking-[-0.04em] leading-none text-center pb-2 italic">
               Jeremiah
-              <sup className="text-6xl ">®</sup>
+              
             </div>
           </motion.div>
         )}

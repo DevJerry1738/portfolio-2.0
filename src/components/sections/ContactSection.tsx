@@ -1,6 +1,8 @@
 // src/components/sections/ContactSection.tsx
+"use client";
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactSection() {
   return (
@@ -42,14 +44,41 @@ export default function ContactSection() {
 
           {/* Contact links */}
           <div className="mt-16 flex flex-col gap-6 items-center lg:items-start">
-            <ContactLink label="Email" href="mailto:your@email.com" />
+            {/** Email link with copy button */}
+            <EmailContactLink email="devjerry1738@gmail.com" />
             <ContactLink label="LinkedIn" href="https://linkedin.com/in/yourprofile" />
-            <ContactLink label="Schedule a call" href="https://calendly.com/" />
-            <ContactLink label="WhatsApp" href="https://wa.me/234XXXXXXXXXX" />
+            <ContactLink label="Schedule a call" href="https://calendly.com/devjerry1738/30min" />
+            <ContactLink label="WhatsApp" href="https://wa.me/2349011448616" />
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function EmailContactLink({ email }: { email: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="group inline-flex items-center gap-4 text-lg md:text-xl uppercase tracking-wider hover:text-red-600 transition-colors"
+    >
+      <span>{copied ? "Copied!" : "Email"}</span>
+      <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+        {copied ? <Check size={20} /> : <ArrowUpRight />}
+      </span>
+    </button>
   );
 }
 
