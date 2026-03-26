@@ -30,9 +30,9 @@ export default function AboutSection() {
           <h2 className="font-black text-4xl leading-[0.95] tracking-[-0.04em] font-medium">
             At my core,
             <br />
-            I don't just ship code
+            I don't just ship code,
             <br />
-            — I build systems
+            I build systems
             <br />
             that endure
             <br />

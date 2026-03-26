@@ -77,9 +77,8 @@ const Navbar = () => {
             >
               <NavLink
                 href={item.href}
-                className={`text-[#ff0000] uppercase text-base font-medium transition-all duration-500 block ${
-                  isCollapsed ? "opacity-0 pointer-events-none" : "opacity-100"
-                }`}
+                className={`text-[#ff0000] uppercase text-base font-medium transition-all duration-500 block ${isCollapsed ? "opacity-0 pointer-events-none" : "opacity-100"
+                  }`}
               >
                 <ScrambledTextHover text={item.label} className="block" />
               </NavLink>
@@ -151,7 +150,7 @@ const Navbar = () => {
           className={`
       transition-opacity duration-500
       ${isCollapsed ? "opacity-0" : "opacity-100"}
-      group-hover:opacity-100
+      group-hover:opacity-100 pt-4 
     `}
         >
           GET IN TOUCH
@@ -170,9 +169,8 @@ const Navbar = () => {
 
       {/* Mobile toggle button - top right */}
       <motion.button
-        className={`md:hidden text-5xl font-medium relative z-50 w-10 h-10 flex items-center justify-center ${
-          isMobileMenuOpen ? "text-white" : "text-[#ff0000]"
-        }`}
+        className={`md:hidden text-5xl font-medium relative z-50 w-10 h-10 flex items-center justify-center ${isMobileMenuOpen ? "text-white" : "text-[#ff0000]"
+          }`}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -212,7 +210,7 @@ const Navbar = () => {
             {/* Bottom full-bleed logo */}
             <div className="text-white text-6xl font-black uppercase tracking-[-0.04em] leading-none text-center pb-2 italic">
               Jeremiah
-              
+
             </div>
           </motion.div>
         )}

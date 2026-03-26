@@ -71,11 +71,11 @@ export default function ServicesSection() {
       id="services"
       className="py-32 md:py-40 lg:py-48 px-6 md:px-12 lg:px-24 border-t border-red-600/20 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto space-y-20 md:space-y-32">
+      <div className="max-w-6xl mx-auto space-y-12 md:space-y-16">
         {/* Header */}
-        <h2 className="font-black text-4xl leading-[0.95] tracking-[-0.04em] font-medium w-50">
+        <h2 className="font-black text-4xl leading-[0.95] tracking-[-0.04em] font-medium max-w-sm md:max-w-[400px]">
           <ScrambledText
-            text="HOW WE'LL  GROW — TOGETHER"
+            text="HOW WE'LL GROW TOGETHER"
             as="span"
             scrambleDelay={300}
             scrambleDuration={1200}
@@ -85,7 +85,7 @@ export default function ServicesSection() {
         {/* Carousel Container */}
         <div className="flex flex-col gap-6 sm:gap-8 md:gap-4">
           <motion.div
-            className="relative min-h-[700px] sm:min-h-[700px] md:min-h-[500px]"
+            className="relative min-h-[800px] sm:min-h-[700px] md:min-h-[500px]"
           >
             {/* AnimatePresence for smooth enter/exit */}
             <AnimatePresence mode="wait">
@@ -141,32 +141,98 @@ export default function ServicesSection() {
                         </motion.div>
                       </div>
 
-                      {/* Bottom: List */}
-                      <motion.ul
-                        className="w-full space-y-0.5 text-base md:text-lg uppercase font-medium opacity-90"
-                        variants={{
-                          hidden: { y: 20, opacity: 0 },
-                          visible: {
-                            y: 0,
-                            opacity: 1,
-                            transition: { staggerChildren: 0.05 },
-                          },
-                        }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                      >
-                        {service.list.map((item, i) => (
-                          <motion.li
-                            key={i}
-                            variants={{
-                              hidden: { y: 10, opacity: 0 },
-                              visible: { y: 0, opacity: 1 },
-                            }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                          >
-                            → {item}
-                          </motion.li>
-                        ))}
-                      </motion.ul>
+                      {/* Bottom: List & Navigation */}
+                      <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 w-full md:items-end">
+                        <motion.ul
+                          className="w-full md:w-5/12 space-y-0.5 text-base md:text-lg uppercase font-medium opacity-90"
+                          variants={{
+                            hidden: { y: 20, opacity: 0 },
+                            visible: {
+                              y: 0,
+                              opacity: 1,
+                              transition: { staggerChildren: 0.05 },
+                            },
+                          }}
+                          transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                          {service.list.map((item, i) => (
+                            <motion.li
+                              key={i}
+                              variants={{
+                                hidden: { y: 10, opacity: 0 },
+                                visible: { y: 0, opacity: 1 },
+                              }}
+                              transition={{ duration: 0.4, ease: "easeOut" }}
+                            >
+                              → {item}
+                            </motion.li>
+                          ))}
+                        </motion.ul>
+
+                        {/* Navigation Controls */}
+                        <motion.div
+                          className="w-full md:w-7/12 flex items-center justify-between md:justify-end gap-6 md:gap-8 text-lg uppercase tracking-wider opacity-80 mt-8 md:mt-0"
+                          variants={{
+                            hidden: { y: 20, opacity: 0 },
+                            visible: { y: 0, opacity: 1 },
+                          }}
+                          transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                          <span className="md:ml-0">
+                            {String(index + 1).padStart(2, "0")} — 03
+                          </span>
+
+                          <div className="flex items-center gap-4">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveIndex((prev) => (prev - 1 + 3) % 3);
+                              }}
+                              className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
+                              disabled={index === 0}
+                              aria-label="Previous service"
+                            >
+                              <svg
+                                className="w-5 h-5 text-[#ff0000]"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M15 19l-7-7 7-7"
+                                />
+                              </svg>
+                            </button>
+
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveIndex((prev) => (prev + 1) % 3);
+                              }}
+                              className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
+                              disabled={index === 2}
+                              aria-label="Next service"
+                            >
+                              <svg
+                                className="w-5 h-5 text-[#ff0000]"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M9 5l7 7-7 7"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </motion.div>
+                      </div>
                     </motion.div>
                   </motion.div>
                 ) : null
@@ -174,60 +240,7 @@ export default function ServicesSection() {
             </AnimatePresence>
           </motion.div>
 
-          {/* Navigation Controls – bottom */}
-          <div className="flex md:justify-end">
-            <div className="flex items-center justify-between md:justify-end w-full md:w-auto gap-6 md:gap-8 text-lg uppercase tracking-wider opacity-80">
-              <span className="md:order-2 md:ml-6">
-                {String(activeIndex + 1).padStart(2, "0")} — 03
-              </span>
 
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() =>
-                    setActiveIndex((prev) => (prev - 1 + 3) % 3)
-                  }
-                  className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
-                  disabled={activeIndex === 0}
-                  aria-label="Previous service"
-                >
-                  <svg
-                    className="w-5 h-5 text-[#ff0000]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                </button>
-
-                <button
-                  onClick={() => setActiveIndex((prev) => (prev + 1) % 3)}
-                  className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
-                  disabled={activeIndex === 2}
-                  aria-label="Next service"
-                >
-                  <svg
-                    className="w-5 h-5 text-[#ff0000]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
