@@ -6,19 +6,7 @@ export default function AboutSection() {
       className="py-32 px-6 md:px-12 lg:px-24 border-t border-red-600/20"
     >
       <div
-        className="
-        flex flex-col md:flex-row 
-        gap-8 md:gap-12 lg:gap-20 
-        justify-between items-center md:items-start
-        max-w-7xl mx-auto 
-        px-6 sm:px-10 lg:px-16 
-        py-20 md:py-28 lg:py-36
-        font-mono uppercase 
-        text-[#ff1a00] 
-        tracking-[-0.03em] leading-[1.15] 
-        text-base sm:text-lg md:text-xl lg:text-2xl 
-        antialiased
-      "
+        className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-20 justify-between items-center md:items-start max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20 md:py-28 lg:py-36 font-mono uppercase text-[#d90429] tracking-[-0.03em] leading-[1.15] text-base sm:text-lg md:text-xl lg:text-2xl antialiased"
         style={{
           textShadow: "0 0 1px transparent",
           WebkitFontSmoothing: "antialiased",

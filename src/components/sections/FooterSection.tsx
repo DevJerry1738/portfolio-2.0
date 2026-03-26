@@ -52,7 +52,7 @@ export default function FooterSection() {
                   { label: "Twitter", href: "#" },
                   { label: "GitHub", href: "#" },
                 ].map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <a
                       href={link.href}
                       className="text-sm hover:text-red-600 transition-colors"

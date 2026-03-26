@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ScrambledText from "@/components/ScrambledText";
+import MagneticButton from "@/components/MagneticButton";
 
 interface Service {
   number: string;
@@ -183,53 +184,57 @@ export default function ServicesSection() {
                           </span>
 
                           <div className="flex items-center gap-4">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setActiveIndex((prev) => (prev - 1 + 3) % 3);
-                              }}
-                              className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
-                              disabled={index === 0}
-                              aria-label="Previous service"
-                            >
-                              <svg
-                                className="w-5 h-5 text-[#ff0000]"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
+                            <MagneticButton>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveIndex((prev) => (prev - 1 + 3) % 3);
+                                }}
+                                className="w-10 h-10 flex items-center justify-center border border-[#d90429]/30 rounded-full hover:bg-[#d90429]/10 transition-colors disabled:opacity-30"
+                                disabled={index === 0}
+                                aria-label="Previous service"
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M15 19l-7-7 7-7"
-                                />
-                              </svg>
-                            </button>
+                                <svg
+                                  className="w-5 h-5 text-[#d90429]"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M15 19l-7-7 7-7"
+                                  />
+                                </svg>
+                              </button>
+                            </MagneticButton>
 
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setActiveIndex((prev) => (prev + 1) % 3);
-                              }}
-                              className="w-10 h-10 flex items-center justify-center border border-[#ff0000]/30 rounded-full hover:bg-[#ff0000]/10 transition-colors disabled:opacity-30"
-                              disabled={index === 2}
-                              aria-label="Next service"
-                            >
-                              <svg
-                                className="w-5 h-5 text-[#ff0000]"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
+                            <MagneticButton>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveIndex((prev) => (prev + 1) % 3);
+                                }}
+                                className="w-10 h-10 flex items-center justify-center border border-[#d90429]/30 rounded-full hover:bg-[#d90429]/10 transition-colors disabled:opacity-30"
+                                disabled={index === 2}
+                                aria-label="Next service"
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5l7 7-7 7"
-                                />
-                              </svg>
-                            </button>
+                                <svg
+                                  className="w-5 h-5 text-[#d90429]"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M9 5l7 7-7 7"
+                                  />
+                                </svg>
+                              </button>
+                            </MagneticButton>
                           </div>
                         </motion.div>
                       </div>

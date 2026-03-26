@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Barlow } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-serif",
   subsets: ["latin"],
-});
-
-const barlow = Barlow({
-  variable: "--font-primary",
-  weight: ["500", "600", "700", "900"],
-  subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${barlow.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#f4f4f0] text-[#d90429]`}
       >
         {children}
       </body>

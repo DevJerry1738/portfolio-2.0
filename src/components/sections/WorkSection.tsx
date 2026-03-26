@@ -1,5 +1,64 @@
 // src/components/sections/WorkSection.tsx
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+// The project data type based on usage
+type Project = {
+  title: string;
+  year: string;
+  description: string;
+  techs: string[];
+  links: { label: string; url: string }[];
+};
+
+function ProjectCard({ project }: { project: Project }) {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+
+  return (
+    <motion.article
+      ref={ref}
+      style={{ scale, opacity }}
+      className="group"
+    >
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase group-hover:text-[#d90429] transition-colors">
+          {project.title}
+        </h3>
+        <span className="text-xl md:text-2xl opacity-70">
+          {project.year}
+        </span>
+      </div>
+      <p className="mt-6 text-lg md:text-xl max-w-3xl font-lighter">
+        {project.description}
+      </p>
+      <div className="mt-8 flex flex-wrap gap-4 text-sm uppercase tracking-wider opacity-80">
+        {project.techs.map((tech) => (
+          <span key={tech}>{tech}</span>
+        ))}
+      </div>
+      <div className="mt-6 flex gap-4">
+        {project.links.map((link) => (
+          <a
+            key={link.label}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 border border-[#d90429] text-[#d90429] uppercase text-sm font-medium hover:bg-[#d90429]/10 transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </motion.article>
+  );
+}
 
 export default function WorkSection() {
   const projects = [
@@ -73,75 +132,8 @@ export default function WorkSection() {
         </h2>
 
         <div className="space-y-32">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="group"
-            >
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-                <motion.h3
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-3xl md:text-4xl lg:text-5xl font-medium uppercase group-hover:text-red-700 transition-colors"
-                >
-                  {project.title}
-                </motion.h3>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-xl md:text-2xl opacity-70"
-                >
-                  {project.year}
-                </motion.span>
-              </div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-6 text-lg md:text-xl max-w-3xl font-lighter"
-              >
-                {project.description}
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-8 flex flex-wrap gap-4 text-sm uppercase tracking-wider opacity-80"
-              >
-                {project.techs.map((tech) => (
-                  <span key={tech}>{tech}</span>
-                ))}
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="mt-6 flex gap-4"
-              >
-                {project.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 border border-[#ff0000] text-[#ff0000] uppercase text-sm font-medium hover:bg-[#ff0000]/10 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </motion.div>
-            </motion.article>
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
         {/* View GitHub Repo Button */}
@@ -150,7 +142,7 @@ export default function WorkSection() {
             href="https://github.com/DevJerry1738?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-[#ff0000] text-[#ff0000] uppercase text-sm font-medium hover:bg-[#ff0000]/10 transition-colors"
+            className="px-6 py-3 border border-[#d90429] text-[#d90429] uppercase text-sm font-medium hover:bg-[#d90429]/10 transition-colors"
           >
             View GitHub Repositories
           </a>

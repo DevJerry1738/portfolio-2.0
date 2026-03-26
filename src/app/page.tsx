@@ -1,10 +1,14 @@
 // src/app/page.tsx
 "use client";
+import { ReactLenis } from "@studio-freight/react-lenis";
+import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WorkSection from "@/components/sections/WorkSection";
+import TechMarquee from "@/components/sections/TechMarquee";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ValuesSection from "@/components/sections/ValuesSection";
 import ClosingSection from "@/components/sections/ClosingSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -12,8 +16,10 @@ import FooterSection from "@/components/sections/FooterSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f2f0ec] text-[#ff0000] font-['Barlow','Helvetica_Neue',Arial,sans-serif] antialiased">
-      {/* Fixed Navbar */}
+    <ReactLenis root>
+      <CustomCursor />
+      <main className="min-h-screen">
+        {/* Fixed Navbar */}
       <Navbar />
 
       {/* Hero Section */}
@@ -28,6 +34,12 @@ export default function Home() {
       {/* Work Section */}
       <WorkSection />
 
+      {/* Tech Stack Marquee */}
+      <TechMarquee />
+
+      {/* Testimonials */}
+      <TestimonialsSection />
+
       {/* Values Section */}
       <ValuesSection />
 
@@ -39,6 +51,7 @@ export default function Home() {
 
       {/* Footer Section */}
       <FooterSection />
-    </div>
+    </main>
+    </ReactLenis>
   );
 }
